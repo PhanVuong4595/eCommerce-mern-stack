@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
+import connectDB from "./config/db.js";
 
 //rest object
 const app = express();
@@ -18,6 +19,9 @@ app.get("/", (req, res) => {
     Message: "Welcome to eCommerce app",
   });
 });
+
+// connect database
+connectDB();
 
 //PORT
 const PORT = process.env.PORT || 8000;
