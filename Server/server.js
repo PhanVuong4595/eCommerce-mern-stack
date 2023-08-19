@@ -2,7 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
+
 import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoute.js";
 
 //rest object
 const app = express();
@@ -19,6 +21,9 @@ app.get("/", (req, res) => {
     Message: "Welcome to eCommerce app",
   });
 });
+
+//routes
+app.use("/api", authRoutes);
 
 // connect database
 connectDB();

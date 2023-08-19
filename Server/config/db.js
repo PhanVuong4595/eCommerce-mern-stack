@@ -2,7 +2,9 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.set("strictQuery", true).connect(process.env.MONGO_URI);
+    await mongoose
+      .set("strictQuery", true)
+      .connect(process.env.MONGO_URI, { useNewUrlParser: true });
     console.log("Database is connected...");
   } catch (error) {
     console.log(`Error: ${error.message}`);
